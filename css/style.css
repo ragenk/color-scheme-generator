@@ -16,7 +16,7 @@ body {
 
 header {
     z-index: 1;
-    padding: 2rem 0;
+    padding: 1.5rem 0;
     box-shadow: 0px 5px 30px 0px #5c5c5c;
 }
 
@@ -24,6 +24,8 @@ form {
     display: flex;
     align-items: center;
     justify-content: space-around;
+    margin: 0 1rem;
+    gap: 1rem;
 }
 
 main,
@@ -48,29 +50,28 @@ footer p {
     color: #2B283A;
 }
 
-.color-hex {
+.color-picker,
+.color-mode,
+.get-btn {    
+    font-family: "Inter", sans-serif;
+    border: 1px solid #D1D5DB;
+    border-radius: 4px;
+    cursor: pointer;
+    height: 2.5rem;
 }
 
-/* .color-1 {
-    background-color:burlywood;
+.color-picker {
+    padding: 0 2px;
+    min-width: 60px;
 }
 
-
-.color-2 {
-    background-color:chartreuse;
+.color-mode {
+    width: 100%;
+    padding: 8px;
 }
 
-
-.color-3 {
-    background-color:cornflowerblue;
+.get-btn {
+    background-color: #FFFFFF;
+    width: 11rem;
+    font-size: 0.75em;
 }
-
-
-.color-4 {
-    background-color: rgb(25, 45, 63);
-}
-
-
-.color-5 {
-    background-color: rgb(182, 114, 13);
-} */

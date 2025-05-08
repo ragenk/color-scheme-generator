@@ -4,7 +4,17 @@ const colorScheme = document.getElementById("color-scheme");
 const colorMode = document.getElementById("color-mode");
 const footer = document.getElementById("footer");
 const mainContainer = document.getElementById("main-container");
-const colorCol = document.querySelectorAll(".color-hex");
+
+function renderMain() {
+  mainContainer.innerHTML = "";
+  colorsArr.forEach((color) => {
+    const colorDiv = document.createElement("div");
+    colorDiv.className = "color-hex";
+    colorDiv.style.backgroundColor = color.hex.value;
+    colorDiv.setAttribute("data-hex", color.hex.value);
+    mainContainer.appendChild(colorDiv);
+  });
+}
 
 function renderFooter() {
   let footerHtml = "";
@@ -12,20 +22,8 @@ function renderFooter() {
     footerHtml += `
             <div><p>${color.hex.value}</p></div>
         `;
-
-    colorCol.style.setProperty("color", `${color.hex.value}`);
   }
   footer.innerHTML = footerHtml;
-}
-
-function renderColors() {
-  let colorHtml = "";
-  for (let i = 0; i < colorsArr.length; i++) {
-    colorHtml += `
-            <div class="color-hex"></div>
-        `;
-  }
-  mainContainer.innerHTML = colorHtml;
 }
 
 colorScheme.addEventListener("submit", (e) => {
@@ -48,7 +46,7 @@ colorScheme.addEventListener("submit", (e) => {
     .then((res) => res.json())
     .then((data) => {
       colorsArr = data.colors;
-      renderColors();
+      renderMain();
       renderFooter();
     });
 });
